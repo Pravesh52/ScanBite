@@ -6,6 +6,7 @@
     "express": "^5.2.1",
     "googleapis": "^173.0.0",
     "nodemon": "^3.1.14",
-    "razorpay": "^2.9.6"
+    "razorpay": "^2.9.6",
+    "twilio": "^6.0.2"
   }
 }
