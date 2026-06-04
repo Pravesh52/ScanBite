@@ -1,0 +1,39 @@
+.success-container {
+  text-align: center;
+  margin-top: 80px;
+  padding: 24px;
+}
+
+.success-icon {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+.success-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.success-sub {
+  color: #666;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.success-btn {
+  margin-top: 24px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  min-height: 44px;
+}
+
+.success-btn:hover {
+  background-color: var(--primary-dark);
+}

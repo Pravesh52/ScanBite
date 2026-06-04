@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/shared/Navbar";
+import MenuPage from "../components/Menu/MenuPage";
 
 const MenuPageRoute = () => {
   return (
-    <div>MenuPageRoute</div>
-  )
-}
+    <>
+      <Navbar />
+      <MenuPage />
+    </>
+  );
+};
 
-export default MenuPageRoute
+export default MenuPageRoute;
