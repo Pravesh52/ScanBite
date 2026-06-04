@@ -1,22 +1,22 @@
 const { google } = require("googleapis");
-const config = require("../config/config");
+const key = require("C:/Users/HP/Downloads/woven-passkey-478214-h1-0bca671fa53d.json");
 
-const auth = new google.auth.JWT(
-  config.GOOGLE_CLIENT_EMAIL,
-  null,
-  config.GOOGLE_PRIVATE_KEY,
-  ["https://www.googleapis.com/auth/spreadsheets"]
-);
+const SHEET_ID = "1eDbRB82aVU6iwBMBdtK-iBCtcLHNmfvKFZY0_dhQySs";
 
-const sheets = google.sheets({ version: "v4", auth });
+const getAuth = () => {
+  return new google.auth.JWT({
+    email: key.client_email,
+    key: key.private_key,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+};
 
-// Products Sheet se data lao
 const getProducts = async () => {
+  const sheets = google.sheets({ version: "v4", auth: getAuth() });
   const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: config.GOOGLE_SHEET_ID,
+    spreadsheetId: SHEET_ID,
     range: "Products!A2:F",
   });
-
   const rows = res.data.values || [];
   return rows.map((row) => ({
     id: row[0],
@@ -28,17 +28,15 @@ const getProducts = async () => {
   }));
 };
 
-// Inventory check karo
 const checkInventory = async (productName) => {
+  const sheets = google.sheets({ version: "v4", auth: getAuth() });
   const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: config.GOOGLE_SHEET_ID,
+    spreadsheetId: SHEET_ID,
     range: "Inventory!A2:F",
   });
-
   const rows = res.data.values || [];
   const item = rows.find((row) => row[1] === productName);
   if (!item) return null;
-
   return {
     productID: item[0],
     productName: item[1],
@@ -49,27 +47,22 @@ const checkInventory = async (productName) => {
   };
 };
 
-// Inventory update karo — order ke baad
 const updateInventory = async (productName, qtyOrdered) => {
+  const sheets = google.sheets({ version: "v4", auth: getAuth() });
   const res = await sheets.spreadsheets.values.get({
-    spreadsheetId: config.GOOGLE_SHEET_ID,
+    spreadsheetId: SHEET_ID,
     range: "Inventory!A2:F",
   });
-
   const rows = res.data.values || [];
   const rowIndex = rows.findIndex((row) => row[1] === productName);
   if (rowIndex === -1) return;
-
   const row = rows[rowIndex];
   const newSoldQty = Number(row[3]) + qtyOrdered;
   const newRemainingStock = Number(row[4]) - qtyOrdered;
   const newStatus = newRemainingStock <= 0 ? "Out of Stock" : "Available";
-
-  // Row 2 se start hoti hai isliye +2
   const sheetRow = rowIndex + 2;
-
   await sheets.spreadsheets.values.update({
-    spreadsheetId: config.GOOGLE_SHEET_ID,
+    spreadsheetId: SHEET_ID,
     range: `Inventory!D${sheetRow}:F${sheetRow}`,
     valueInputOption: "RAW",
     requestBody: {
