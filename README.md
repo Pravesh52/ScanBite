@@ -279,10 +279,6 @@ Login with the admin password
 
 ---
 
-## 📸 Screenshots
-
-> Replace the placeholders below with your actual screenshots (upload images to a `screenshots/` folder in the repo and update the paths).
-
 ### Customer Menu Page
 ![Menu Page](./screenshots/menu-page.png)
 
