@@ -1,0 +1,143 @@
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.orders-heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.orders-refresh-btn {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.order-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.order-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-id {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.order-status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.status-pending {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.status-confirmed {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-delivered {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.order-details p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.order-verify-code {
+  background-color: #fff3e0;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #e65100;
+}
+
+.no-orders {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+.orders-error {
+  text-align: center;
+  margin-top: 40px;
+  color: red;
+}
+
+.order-urgent {
+  border: 2px solid #d32f2f !important;
+  animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: #d32f2f; }
+  50% { border-color: #ff8a80; }
+}
+
+.order-timer {
+  font-size: 13px;
+  font-weight: bold;
+  color: #e65100;
+  margin-bottom: 10px;
+  background-color: #fff3e0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.timer-urgent {
+  color: #d32f2f;
+  background-color: #ffebee;
+}
+
+.status-cancelled {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.cancel-order-btn {
+  width: 100%;
+  background-color: #fff;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  min-height: 44px;
+}
+
+.cancel-order-btn:hover {
+  background-color: #ffebee;
+}

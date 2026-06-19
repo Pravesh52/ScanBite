@@ -1,6 +1,70 @@
-// const { checkInventory, updateInventory } = require("../services/googleSheetService");
-// const { sendOrderToN8n } = require("../services/n8nService");
-// const { createPaymentOrder } = require("../services/razorpayService");
+// // const { checkInventory, updateInventory } = require("../services/googleSheetService");
+// // const { sendOrderToN8n } = require("../services/n8nService");
+// // const { createPaymentOrder } = require("../services/razorpayService");
+
+// // // const placeOrder = async (req, res) => {
+// // //   try {
+// // //     const { name, mobile, email, table, items, totalAmount, paymentMethod } = req.body;
+
+// // //     // Step 1 — Inventory check karo
+// // //     for (const item of items) {
+// // //       const inventory = await checkInventory(item.name);
+
+// // //       if (!inventory) {
+// // //         return res.status(400).json({ message: `${item.name} inventory me nahi mila` });
+// // //       }
+
+// // //       if (inventory.remainingStock < item.qty) {
+// // //         return res.status(400).json({
+// // //           message: `${item.name} Out of Stock hai — sirf ${inventory.remainingStock} bacha hai`,
+// // //         });
+// // //       }
+// // //     }
+
+// // //     // Step 2 — Order ID banao
+// // //     const orderID = `ORD${Date.now()}`;
+
+// // //     // Step 3 — Order data banao
+// // //     const orderData = {
+// // //       orderID,
+// // //       name,
+// // //       mobile,
+// // //       email,
+// // //       table,
+// // //       items,
+// // //       totalAmount,
+// // //       paymentMethod,
+// // //     };
+
+// // //     // Step 4 — Razorpay order banao agar online payment ho
+// // //     let razorpayOrder = null;
+// // //     if (paymentMethod === "Online") {
+// // //       razorpayOrder = await createPaymentOrder(totalAmount);
+// // //       orderData.razorpayOrderId = razorpayOrder.id;
+// // //     }
+
+// // //     // Step 5 — n8n ko bhejo
+// // //     await sendOrderToN8n(orderData);
+
+// // //     // Step 6 — Inventory update karo
+// // //     for (const item of items) {
+// // //       await updateInventory(item.name, item.qty);
+// // //     }
+
+// // //     // Step 7 — Response bhejo
+// // //     res.status(200).json({
+// // //       message: "Order place ho gaya!",
+// // //       orderID,
+// // //       razorpayOrder,
+// // //     });
+// // //   } catch (error) {
+// // //     console.error("Order error:", error.message);
+// // //     res.status(500).json({ message: "Order place nahi hua" });
+// // //   }
+// // // };
+
+// // // module.exports = { placeOrder };
+
 
 // // const placeOrder = async (req, res) => {
 // //   try {
@@ -39,12 +103,21 @@
 // //     // Step 4 — Razorpay order banao agar online payment ho
 // //     let razorpayOrder = null;
 // //     if (paymentMethod === "Online") {
-// //       razorpayOrder = await createPaymentOrder(totalAmount);
-// //       orderData.razorpayOrderId = razorpayOrder.id;
+// //       try {
+// //         razorpayOrder = await createPaymentOrder(totalAmount);
+// //         orderData.razorpayOrderId = razorpayOrder.id;
+// //       } catch (razorErr) {
+// //         console.error("Razorpay error:", razorErr);
+// //         return res.status(500).json({ message: "Payment order nahi bana" });
+// //       }
 // //     }
 
 // //     // Step 5 — n8n ko bhejo
-// //     await sendOrderToN8n(orderData);
+// //     try {
+// //       await sendOrderToN8n(orderData);
+// //     } catch (n8nErr) {
+// //       console.error("N8n error:", n8nErr.message);
+// //     }
 
 // //     // Step 6 — Inventory update karo
 // //     for (const item of items) {
@@ -57,27 +130,29 @@
 // //       orderID,
 // //       razorpayOrder,
 // //     });
+
 // //   } catch (error) {
-// //     console.error("Order error:", error.message);
-// //     res.status(500).json({ message: "Order place nahi hua" });
+// //     console.error("Order error:", error);
+// //     res.status(500).json({ message: "Order place nahi hua", error: error.message });
 // //   }
 // // };
 
-// // module.exports = { placeOrder };
 
+
+
+// const { checkInventory, updateInventory } = require("../services/googleSheetService");
+// const { sendOrderToN8n } = require("../services/n8nService");
+// const { createPaymentOrder } = require("../services/razorpayService");
 
 // const placeOrder = async (req, res) => {
 //   try {
 //     const { name, mobile, email, table, items, totalAmount, paymentMethod } = req.body;
 
-//     // Step 1 — Inventory check karo
 //     for (const item of items) {
 //       const inventory = await checkInventory(item.name);
-
 //       if (!inventory) {
 //         return res.status(400).json({ message: `${item.name} inventory me nahi mila` });
 //       }
-
 //       if (inventory.remainingStock < item.qty) {
 //         return res.status(400).json({
 //           message: `${item.name} Out of Stock hai — sirf ${inventory.remainingStock} bacha hai`,
@@ -85,22 +160,12 @@
 //       }
 //     }
 
-//     // Step 2 — Order ID banao
 //     const orderID = `ORD${Date.now()}`;
-
-//     // Step 3 — Order data banao
 //     const orderData = {
-//       orderID,
-//       name,
-//       mobile,
-//       email,
-//       table,
-//       items,
-//       totalAmount,
-//       paymentMethod,
+//       orderID, name, mobile, email, table,
+//       items, totalAmount, paymentMethod,
 //     };
 
-//     // Step 4 — Razorpay order banao agar online payment ho
 //     let razorpayOrder = null;
 //     if (paymentMethod === "Online") {
 //       try {
@@ -112,19 +177,16 @@
 //       }
 //     }
 
-//     // Step 5 — n8n ko bhejo
 //     try {
 //       await sendOrderToN8n(orderData);
 //     } catch (n8nErr) {
 //       console.error("N8n error:", n8nErr.message);
 //     }
 
-//     // Step 6 — Inventory update karo
 //     for (const item of items) {
 //       await updateInventory(item.name, item.qty);
 //     }
 
-//     // Step 7 — Response bhejo
 //     res.status(200).json({
 //       message: "Order place ho gaya!",
 //       orderID,
@@ -137,17 +199,23 @@
 //   }
 // };
 
-
+// module.exports = { placeOrder };
 
 
 const { checkInventory, updateInventory } = require("../services/googleSheetService");
 const { sendOrderToN8n } = require("../services/n8nService");
 const { createPaymentOrder } = require("../services/razorpayService");
 
+// Random 4 digit code generate karo
+const generateVerifyCode = () => {
+  return Math.floor(1000 + Math.random() * 9000).toString();
+};
+
 const placeOrder = async (req, res) => {
   try {
     const { name, mobile, email, table, items, totalAmount, paymentMethod } = req.body;
 
+    // Step 1 — Inventory check karo
     for (const item of items) {
       const inventory = await checkInventory(item.name);
       if (!inventory) {
@@ -160,12 +228,24 @@ const placeOrder = async (req, res) => {
       }
     }
 
+    // Step 2 — Order ID + Verify Code banao
     const orderID = `ORD${Date.now()}`;
+    const verifyCode = generateVerifyCode();
+
+    // Step 3 — Order data banao
     const orderData = {
-      orderID, name, mobile, email, table,
-      items, totalAmount, paymentMethod,
+      orderID,
+      name,
+      mobile,
+      email,
+      table,
+      items,
+      totalAmount,
+      paymentMethod,
+      verifyCode,
     };
 
+    // Step 4 — Razorpay order banao agar online payment ho
     let razorpayOrder = null;
     if (paymentMethod === "Online") {
       try {
@@ -177,19 +257,23 @@ const placeOrder = async (req, res) => {
       }
     }
 
+    // Step 5 — n8n ko bhejo
     try {
       await sendOrderToN8n(orderData);
     } catch (n8nErr) {
       console.error("N8n error:", n8nErr.message);
     }
 
+    // Step 6 — Inventory update karo
     for (const item of items) {
       await updateInventory(item.name, item.qty);
     }
 
+    // Step 7 — Response bhejo
     res.status(200).json({
       message: "Order place ho gaya!",
       orderID,
+      verifyCode,
       razorpayOrder,
     });
 

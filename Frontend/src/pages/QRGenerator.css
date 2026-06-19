@@ -1,0 +1,160 @@
+/* Login Screen */
+.qr-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--gray);
+  padding: 20px;
+}
+
+.qr-login-box {
+  background-color: var(--white);
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.qr-login-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.qr-login-sub {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+/* QR Generator Screen */
+.qr-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.qr-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.qr-sub {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.qr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.qr-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  min-height: 44px;
+  text-align: center;
+}
+
+.qr-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.qr-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+/* QR Result */
+.qr-result {
+  background-color: var(--white);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.qr-table-label {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.qr-code-box {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.qr-url {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 16px;
+  word-break: break-all;
+}
+
+.qr-download-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 44px;
+  margin-bottom: 12px;
+}
+
+.qr-download-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.qr-new-btn {
+  width: 100%;
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.qr-error {
+  color: red;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .qr-container {
+    padding: 40px 24px;
+  }
+}

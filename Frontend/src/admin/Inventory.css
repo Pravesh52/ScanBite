@@ -1,0 +1,106 @@
+.inventory-heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.inventory-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.inventory-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.inventory-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.inventory-status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.inventory-status.available {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.inventory-status.out {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.inventory-stats p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.inventory-edit-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+  min-height: 44px;
+}
+
+.inventory-edit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inventory-edit-input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  text-align: center;
+  min-height: 44px;
+}
+
+.inventory-save-btn {
+  background-color: #4caf50;
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  min-height: 44px;
+}
+
+.inventory-cancel-btn {
+  background-color: #ccc;
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.inventory-error {
+  text-align: center;
+  color: red;
+  padding: 20px;
+}

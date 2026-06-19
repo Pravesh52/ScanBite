@@ -1,0 +1,129 @@
+.verify-heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.verify-sub {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.no-pending {
+  text-align: center;
+  padding: 40px;
+  color: #2e7d32;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.verify-order-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--primary);
+}
+
+.verify-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.verify-order-id {
+  font-weight: bold;
+  font-size: 13px;
+  color: #666;
+}
+
+.verify-order-status {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.verify-order-status.pending {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.verify-order-status.confirmed {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.verify-card-details p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.verify-table-highlight {
+  font-size: 17px !important;
+  font-weight: bold;
+  color: var(--primary) !important;
+  margin-bottom: 10px !important;
+}
+
+.verify-row-error {
+  color: red;
+  font-size: 13px;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+.verify-card-action {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.verify-card-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid var(--primary);
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 4px;
+  min-height: 44px;
+  min-width: 0;
+}
+
+.verify-card-btn {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.verify-card-btn:disabled {
+  background-color: #ccc;
+}
+
+.verify-error-page {
+  text-align: center;
+  color: red;
+  padding: 20px;
+}
+
+@media (max-width: 380px) {
+  .verify-card-action {
+    flex-direction: column;
+  }
+}

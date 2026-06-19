@@ -1,0 +1,83 @@
+.history-heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.history-filter {
+  margin-bottom: 16px;
+}
+
+.history-date-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  min-height: 44px;
+}
+
+.history-summary {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white);
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.history-summary strong {
+  color: var(--primary);
+}
+
+.history-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.history-card-top {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.history-card p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.no-history {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+.history-error {
+  text-align: center;
+  color: red;
+  padding: 20px;
+}
+
+.history-search {
+  margin-bottom: 16px;
+}
+
+.history-search-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  min-height: 44px;
+}

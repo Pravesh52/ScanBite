@@ -1,0 +1,95 @@
+.dashboard-heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dashboard-card {
+  background-color: var(--white);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.dashboard-card.pending {
+  background-color: #fff3e0;
+}
+
+.dashboard-card-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.dashboard-card-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.popular-items {
+  background-color: var(--white);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.popular-heading {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.popular-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.popular-count {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.no-data {
+  color: #999;
+  text-align: center;
+  padding: 12px;
+}
+
+.refresh-btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.dashboard-error {
+  text-align: center;
+  margin-top: 40px;
+  color: red;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
