@@ -3,7 +3,7 @@ import { QRCodeSVG } from "qrcode.react";
 import "./QRGenerator.css";
 
 const OWNER_PASSWORD = "scanbite123";
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://scan-bite-ten.vercel.app/";
 
 
 const QRGenerator = () => {
