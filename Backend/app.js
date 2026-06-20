@@ -10,13 +10,12 @@ const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 app.use(cors({
-  origin: ["https://scanbite-xxxx.vercel.app", "http://localhost:3000"],
+  origin: ["https://scan-bite-ten.vercel.app", "http://localhost:3000"],
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
 app.use("/products", productRoutes);
 app.use("/order", orderRoutes);
 app.use("/otp", otpRoutes);
