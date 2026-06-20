@@ -1,7 +1,10 @@
 const { google } = require("googleapis");
-const key = require("C:/Users/HP/Downloads/woven-passkey-478214-h1-0bca671fa53d.json");
+// const key = require("C:/Users/HP/Downloads/woven-passkey-478214-h1-0bca671fa53d.json");
+const key = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
 
-const SHEET_ID = "1eDbRB82aVU6iwBMBdtK-iBCtcLHNmfvKFZY0_dhQySs";
+const SHEET_ID = process.env.GOOGLE_SHEET_ID;
+
+// const SHEET_ID = "1eDbRB82aVU6iwBMBdtK-iBCtcLHNmfvKFZY0_dhQySs";
 
 const getAuth = () => {
   return new google.auth.JWT({
